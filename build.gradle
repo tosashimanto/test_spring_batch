@@ -43,6 +43,7 @@ targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-batch")
+    compile("org.hsqldb:hsqldb")
     compile "org.projectlombok:lombok:${lombokVer}"
     compile "com.amazonaws:aws-java-sdk-dynamodb:${awsSdkVer}"
     compile "com.amazonaws:aws-java-sdk-s3:${awsSdkVer}"
