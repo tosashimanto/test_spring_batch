@@ -1,0 +1,58 @@
+group 'jp.co.test'
+version '1.0-SNAPSHOT'
+
+
+
+
+buildscript {
+    ext {
+        springBootVer = '1.3.8.RELEASE'
+        springSessionVer = '1.0.2.RELEASE'
+        awsSdkVer = '1.11.52'
+        groovyVer = '2.4.4'
+        lombokVer = '1.16.8'
+        junitVer = '4.12'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.1.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+
+bootJar {
+    baseName = 'test_spring_batch'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-batch")
+    compile "org.projectlombok:lombok:${lombokVer}"
+    compile "com.amazonaws:aws-java-sdk-dynamodb:${awsSdkVer}"
+    compile "com.amazonaws:aws-java-sdk-s3:${awsSdkVer}"
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2'
+    compile 'org.apache.httpcomponents:httpcore:4.4.4'
+    compile 'org.apache.httpcomponents:httpasyncclient:4.1.2'
+    compile 'org.apache.commons:commons-pool2:2.2'
+    compile 'org.apache.commons:commons-lang3:3.4'
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('com.jayway.jsonpath:json-path')
+}
+
+
