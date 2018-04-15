@@ -1,5 +1,6 @@
 package jp.co.test;
 
+import jp.co.test.aaa.BatchConfiguration;
 import org.springframework.boot.SpringApplication;
 
 public class Main {
